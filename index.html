@@ -81,19 +81,27 @@
     .orb2 { width: 400px; height: 400px; background: radial-gradient(circle, #9b420015 0%, transparent 70%); top: 20%; right: -80px; }
 
     /* ── HERO ── */
+    .hero-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1280px;
+      margin: 80px auto 0;
+      padding: 0 40px;
+    }
     .hero {
       position: relative;
       width: 100%;
-      height: 75svh;
+      aspect-ratio: 16/9;
       overflow: hidden;
-      z-index: 1;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(194,96,16,0.08);
     }
     .hero video {
       position: absolute;
       inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      opacity: 0.75;
+      opacity: 0.85;
     }
     .hero::after {
       content: '';
@@ -101,10 +109,13 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(14,4,0,0.4) 0%,
-        rgba(14,4,0,0.1) 40%,
-        rgba(14,4,0,0.7) 100%
+        rgba(14,4,0,0.2) 0%,
+        rgba(14,4,0,0.0) 40%,
+        rgba(14,4,0,0.5) 100%
       );
+    }
+    @media (max-width: 700px) {
+      .hero-wrap { padding: 0 16px; margin-top: 40px; }
     }
     .hero-scroll {
       position: absolute;
@@ -563,10 +574,12 @@
   <div class="glow-orb orb2" id="orb2"></div>
 
   <!-- ══ HERO: video 5 ══ -->
-  <section class="hero">
-    <video src="videos/video5.mp4" autoplay muted loop playsinline></video>
-    <div class="hero-scroll">scroll</div>
-  </section>
+  <div class="hero-wrap">
+    <section class="hero">
+      <video src="videos/video5.mp4" autoplay muted loop playsinline></video>
+      <div class="hero-scroll">scroll</div>
+    </section>
+  </div>
 
   <!-- ══ GALLERY ══ -->
   <main class="gallery">
