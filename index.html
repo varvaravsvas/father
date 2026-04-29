@@ -91,14 +91,17 @@
     .hero {
       position: relative;
       width: 100%;
+      aspect-ratio: 9/16;
       overflow: hidden;
       border-radius: var(--radius);
       box-shadow: 0 8px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(194,96,16,0.08);
     }
     .hero video {
-      display: block;
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: contain;
       opacity: 0.85;
     }
     .hero::after {
@@ -178,11 +181,6 @@
       background: #1a0800;
       box-shadow: 0 4px 32px rgba(0,0,0,0.6), 0 0 0 1px rgba(194,96,16,0.08);
     }
-    .vid video {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
     .vid::after {
       content: '';
       position: absolute;
@@ -194,8 +192,18 @@
     .vid:hover { box-shadow: 0 8px 48px rgba(194,96,16,0.25), 0 0 0 1px rgba(194,96,16,0.2); }
     .vid:hover video { transform: scale(1.025); transition: transform 6s ease; }
 
+    /* ── VIDEO CARD размеры ── */
+    .vid { aspect-ratio: 9/16; }
+    .vid video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .vid { position: relative; }
+
     /* ── ROW LAYOUTS ── */
-    /* Нет фиксированного aspect-ratio — видео само определяет высоту */
 
     /* A: два одинаковых */
     .row-pair {
